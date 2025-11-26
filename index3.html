@@ -24,7 +24,7 @@
             height: 100%;
             margin: 0;
             font-family: "Playfair Display", serif;
-            background: linear-gradient(180deg, #042821 0%, #06392d 60%);
+            background: var(--cream);
             color: var(--muted);
             overflow-x: hidden;
         }
@@ -42,12 +42,12 @@
         .ayah span {
             display: block;
             font-size: 14px;
-            color: #f0f0f0;
+            color: #284936;
             font-weight: 400;
             margin-top: 4px;
         }
 
-        /* Wrapper & Background */
+        /* wrapper */
         .wrap {
             min-height: 100vh;
             display: flex;
@@ -59,6 +59,7 @@
             perspective: 1200px;
         }
 
+        /* stars background */
         .stars {
             position: absolute;
             inset: 0;
@@ -73,15 +74,16 @@
         }
 
         @keyframes drift {
-            0% {
+            from {
                 transform: translateY(0)
             }
 
-            100% {
+            to {
                 transform: translateY(-120px)
             }
         }
 
+        /* floating particles */
         .particle {
             position: absolute;
             background: radial-gradient(circle, #d4b36a, #caa14b);
@@ -106,16 +108,17 @@
             }
         }
 
-        /* Card */
+        /* card */
         .card {
             position: relative;
             width: 100%;
             max-width: 980px;
             border-radius: 14px;
             padding: 40px;
-            background: linear-gradient(180deg, rgba(2, 6, 6, 0.07), rgba(255, 255, 255, 0.02));
-            box-shadow: 0 24px 80px rgba(2, 8, 6, 0.7);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.95));
+            box-shadow: 0 24px 80px rgba(2, 8, 6, 0.2);
             z-index: 10;
+            display: block;
             overflow: hidden;
             border: 4px solid rgba(202, 161, 75, 0.08);
             transform-style: preserve-3d;
@@ -126,6 +129,7 @@
             transform: rotateY(6deg) rotateX(3deg) translateZ(6px);
         }
 
+        /* shimmer border */
         .card::before {
             content: "";
             position: absolute;
@@ -150,8 +154,9 @@
             }
         }
 
+        /* frame */
         .frame {
-            background: linear-gradient(180deg, var(--cream), #fffaf2);
+            background: var(--cream);
             border-radius: 10px;
             padding: 36px 40px;
             position: relative;
@@ -163,13 +168,13 @@
             transform-style: preserve-3d;
         }
 
-        /* Header & Crest */
+        /* header */
         header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 8px;
             gap: 20px;
+            justify-content: center;
+            margin-bottom: 8px
         }
 
         .crest {
@@ -190,7 +195,7 @@
             fill: var(--gold);
         }
 
-        /* Titles & Names */
+        /* headings & names */
         .topline {
             color: var(--emerald);
             font-weight: 700;
@@ -207,12 +212,13 @@
         }
 
         h1.title {
-            font-family: "Great Vibes";
+            font-family: "Great Vibes", serif;
             font-size: 54px;
             color: var(--gold);
             margin: 6px 0 4px;
             letter-spacing: 0.6px;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.6s ease;
         }
 
         .lead {
@@ -221,6 +227,7 @@
             margin-bottom: 10px;
             font-weight: 600;
             text-shadow: 0 0 4px var(--emerald-2), 0 0 6px rgba(255, 255, 255, 0.25);
+            transition: all 0.5s ease;
         }
 
         .names-grid {
@@ -230,6 +237,7 @@
             justify-content: center;
             flex-wrap: wrap;
             margin: 6px 0 12px;
+            transition: transform 0.6s ease;
         }
 
         .name-card {
@@ -255,10 +263,11 @@
             font-size: 26px;
             color: var(--emerald-2);
             font-weight: 800;
-            font-family: "Playfair Display";
+            font-family: "Playfair Display", serif;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* programme */
         .programme {
             margin-top: 12px;
             color: #1d3025;
@@ -267,6 +276,7 @@
             gap: 18px;
             justify-content: center;
             flex-wrap: wrap;
+            transition: transform 0.6s ease;
         }
 
         .prog-item {
@@ -289,7 +299,7 @@
             font-weight: 700;
         }
 
-        /* Countdown */
+        /* countdown */
         .countdown {
             display: flex;
             gap: 12px;
@@ -326,13 +336,13 @@
             font-weight: 600;
         }
 
-        /* Details & RSVP */
+        /* details */
         .details {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-top: 24px;
-            align-items: start;
+            align-items: start
         }
 
         .card-block {
@@ -342,7 +352,6 @@
             border: 1px solid rgba(202, 161, 75, 0.05);
             text-align: left;
             font-weight: 600;
-            color: #163725;
             transition: transform 0.4s ease;
         }
 
@@ -371,6 +380,7 @@
             text-decoration: none;
         }
 
+        /* RSVP & Members */
         .rsvp-btn {
             margin-top: 8px;
             padding: 10px 20px;
@@ -392,21 +402,21 @@
         }
 
         .rsvp-list {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
+            display: none;
             margin-top: 10px;
             padding-left: 16px;
             font-weight: 600;
             color: #163725;
             list-style: disc;
             line-height: 1.8;
+            transition: all 0.5s ease;
         }
 
-        .rsvp-list.show {
-            max-height: 500px;
+        .rsvp-list li {
+            padding: 4px 0;
         }
 
+        /* footer */
         footer {
             margin-top: 20px;
             text-align: center;
@@ -416,7 +426,7 @@
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
         }
 
-        /* Welcome Overlay */
+        /* welcome overlay */
         .welcome {
             position: fixed;
             inset: 0;
@@ -426,7 +436,7 @@
             background: linear-gradient(180deg, rgba(2, 6, 8, 0.88), rgba(2, 6, 8, 0.92));
             z-index: 40;
             color: var(--cream);
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px)
         }
 
         .welcome .box {
@@ -436,7 +446,7 @@
             border-radius: 12px;
             text-align: center;
             border: 1px solid rgba(202, 161, 75, 0.06);
-            background: linear-gradient(180deg, rgba(3, 20, 18, 0.35), rgba(5, 30, 26, 0.25));
+            background: linear-gradient(180deg, rgba(3, 20, 18, 0.35), rgba(5, 30, 26, 0.25))
         }
 
         .welcome h1 {
@@ -458,6 +468,7 @@
             font-size: 18px;
         }
 
+        /* small screens */
         @media(max-width:720px) {
             .frame {
                 padding: 22px
@@ -484,174 +495,11 @@
                 font-size: 14px
             }
         }
-
-        .firework {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            /* Behind main card content */
-            opacity: 0.9;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: screen;
-        }
-
-        @keyframes firework-blast {
-            0% {
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 0.8;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(var(--x), var(--y)) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* Sparkle effect on main heading */
-        #mainHeading {
-            position: relative;
-            display: inline-block;
-            overflow: visible;
-        }
-
-        .heading-sparkles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 10;
-            /* above the heading text */
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: radial-gradient(circle, #ffd700, #ffdd99);
-            border-radius: 50%;
-            opacity: 0;
-            animation: sparkleAnim 1.2s ease-out forwards;
-            z-index: 10;
-        }
-
-        @keyframes sparkleAnim {
-            0% {
-                transform: translate(0, 0) scale(0);
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(var(--x), var(--y)) scale(0);
-                opacity: 0;
-            }
-        }
-@media (max-width: 720px) {
-    .wrap {
-        padding: 20px;
-    }
-    
-    .card {
-        padding: 20px;
-    }
-
-    .frame {
-        padding: 18px;
-        max-width: 100%;
-    }
-}
-@media (max-width: 720px) {
-    h1.title {
-        font-size: 36px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .heading-sparkles {
-        width: 100%;
-        height: 100%;
-    }
-}
-@media (max-width: 720px) {
-    .names-grid {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
-
-    .name-card {
-        width: 90%;
-        text-align: center;
-    }
-}
-@media (max-width: 720px) {
-    .programme {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .prog-item {
-        min-width: 100%;
-        text-align: center;
-    }
-
-    .countdown {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .countdown .unit {
-        min-width: 80%;
-    }
-}
-@media (max-width: 720px) {
-    .details {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .card-block {
-        width: 100%;
-        text-align: center;
-    }
-
-    .rsvp-btn {
-        width: 100%;
-    }
-}
-@media (max-width: 720px) {
-    .ayah {
-        font-size: 13px;
-        line-height: 1.4;
-        padding: 0 12px;
-    }
-
-    .lead {
-        font-size: 18px;
-    }
-
-    footer {
-        font-size: 14px;
-    }
-}
-
-
     </style>
 </head>
 
 <body>
-
+    <!-- Welcome Overlay -->
     <div class="welcome" id="welcomeOverlay">
         <div class="box">
             <h1>Welcome to Rao Family Wedding</h1>
@@ -659,57 +507,52 @@
         </div>
     </div>
 
+    <!-- Ayah -->
     <div class="ayah">
         وَمِنۡ ءَايَٰتِهِۦٓ أَنۡ خَلَقَ لَكُم مِّنۡ أَنفُسِكُمۡ أَزۡوَٰجٗا لِّتَسۡكُنُوٓاْ إِلَيۡهَا وَجَعَلَ بَيۡنَكُم
         مَّوَدَّةٗ وَرَحۡمَةًۚ إِنَّ فِي ذَٰلِكَ لَأٓيَٰتٖ لِّقَوۡمٖ يَتَفَكَّرُونَ
-        <span>اور اس کی نشانیوں میں سے ہے کہ تمہاری ہی جنس سے بیویاں پیدا کیں تاکہ تم ان سے آرام پاؤ اس نے تمہارے درمیان
-            محبت اور ہمدردی قائم کر دی، یقیناً غور وفکر کرنے والوں کے لئے اس میں بہت سی نشانیاں ہیں</span>
+        <span>اور اس کی نشانیوں میں سے ہے کہ تمہاری ہی جنس سے بیویاں پیدا کیں تاکہ تم ان سے آرام پاؤ اس نے تمہارے درمیان محبت اور ہمدردی قائم کر دی، یقیناً غور وفکر کرنے والوں کے لئے اس میں بہت سی نشانیاں ہیں</span>
     </div>
 
+    <!-- Star Field -->
     <div class="stars" aria-hidden></div>
 
+    <!-- Wrapper -->
     <div class="wrap">
-        <div class="card">
-            <div class="frame">
-                <!-- Header & Titles -->
+        <div class="card" role="main">
+            <div class="frame" role="article">
                 <header>
-                    <div class="crest">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2c.7 0 1.36.08 2 .24A8.5 8.5 0 1 0 21.76 10C22 10.64 22 11.32 22 12a10 10 0 1 1-10-10z" />
+                    <div class="crest" aria-hidden>
+                        <svg viewBox="0 0 24 24" aria-hidden>
+                            <path d="M12 2c.7 0 1.36.08 2 .24A8.5 8.5 0 1 0 21.76 10C22 10.64 22 11.32 22 12a10 10 0 1 1-10-10z" />
                         </svg>
                     </div>
                 </header>
+
                 <div class="topline">MR. & MRS. CAPT. NISAR AHMED (H/R)</div>
                 <div class="invite-sub">cordially invite you to the</div>
-                <div style="position: relative; display: inline-block;">
-                    <h1 class="title" id="mainHeading">Wedding Ceremony</h1>
-                    <div class="heading-sparkles"></div>
-                </div>
-
+                <h1 class="title">Wedding Ceremony</h1>
                 <div class="lead">of their beloved daughters</div>
 
-                <div class="names-grid">
+                <div class="names-grid" id="names">
                     <div class="name-card">
                         <div class="parent">D/O Capt. Rao Nisar Ahmed</div>
                         <div class="name">Rao Muhammad Saqib</div>
                     </div>
-                    <div class="amp">&amp;</div>
+                    <div class="amp" aria-hidden>&amp;</div>
                     <div class="name-card">
                         <div class="parent">D/O Capt. Rao Nisar Ahmed</div>
                         <div class="name">Rao Muhammad Arslan</div>
                     </div>
                 </div>
 
-                <!-- Programme -->
-                <div class="programme">
+                <div class="programme" id="programme">
                     <div class="prog-item"><small>Reception of Barat</small><strong>12:00 PM</strong></div>
                     <div class="prog-item"><small>Lunch</small><strong>02:00 PM</strong></div>
                     <div class="prog-item"><small>Rukhsati</small><strong>04:00 PM</strong></div>
                 </div>
 
-                <!-- Countdown -->
-                <div class="countdown">
+                <div class="countdown" id="countdown">
                     <div class="unit">
                         <div class="num" id="days">0</div>
                         <div class="label">Days</div>
@@ -728,16 +571,10 @@
                     </div>
                 </div>
 
-                <!-- Details & RSVP -->
                 <div class="details">
                     <div class="card-block">
                         <h3>Venue</h3>
-                        <p>
-                            <a href="https://maps.app.goo.gl/s8MtMvTM6MXqPL4TA" target="_blank"
-                                style="color: var(--emerald); text-decoration: underline;">
-                                Askari Marriage Hall Tench Bhata, Rawalpindi
-                            </a>
-                        </p>
+                        <p>Royal Banquet Hall, Islamabad</p>
                     </div>
 
                     <div class="card-block">
@@ -750,6 +587,7 @@
                             <li>Rao M. Imran</li>
                             <li>Rao M. Bilal</li>
                         </ul>
+
                         <h3 style="margin-top:16px;">Looking Forward Members</h3>
                         <button class="rsvp-btn" id="membersBtn">Show Members</button>
                         <ul class="rsvp-list" id="membersList">
@@ -767,45 +605,56 @@
     </div>
 
     <script>
+        // ===== Welcome Overlay =====
         const welcomeOverlay = document.getElementById("welcomeOverlay");
-        document.getElementById("enterBtn").addEventListener("click", () => welcomeOverlay.style.display = "none");
+        const enterBtn = document.getElementById("enterBtn");
+        const revealElements = document.querySelectorAll(".frame > *");
 
-        // RSVP animation toggle
-        function toggleList(btnId, listId) {
-            const btn = document.getElementById(btnId);
-            const list = document.getElementById(listId);
-            btn.addEventListener("click", () => list.classList.toggle("show"));
+        enterBtn.addEventListener("click", () => {
+            welcomeOverlay.style.display = "none";
+            // reveal all children smoothly
+            revealElements.forEach(el => el.style.opacity = "1");
+        });
+
+        // ===== RSVP Toggle =====
+        const rsvpBtn = document.getElementById("rsvpBtn");
+        const rsvpList = document.getElementById("rsvpList");
+
+        rsvpBtn.addEventListener("click", () => {
+            rsvpList.style.display = rsvpList.style.display === "block" ? "none" : "block";
+        });
+
+        // ===== Members Toggle =====
+        const membersBtn = document.getElementById("membersBtn");
+        const membersList = document.getElementById("membersList");
+
+        membersBtn.addEventListener("click", () => {
+            membersList.style.display = membersList.style.display === "block" ? "none" : "block";
+        });
+
+        // ===== Countdown Timer =====
+        const weddingDate = new Date("Dec 25, 2025 14:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff < 0) return;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
-        toggleList("rsvpBtn", "rsvpList");
-        toggleList("membersBtn", "membersList");
 
-        // Countdown
-        // ===== Countdown in UTC =====
-// Set the wedding date in UTC (Dec 25, 2025, 14:00 UTC)
-const weddingDateUTC = new Date(Date.UTC(2025, 11, 21, 13, 0, 0));
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDateUTC - now; // difference in milliseconds
-
-    if (diff < 0) return; // countdown finished
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-    document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-    document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-}
-
-// update every second
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-        // Floating Particles
+        // ===== Floating Particles =====
         const wrap = document.querySelector(".wrap");
         for (let i = 0; i < 25; i++) {
             const particle = document.createElement("div");
@@ -817,69 +666,22 @@ updateCountdown();
             wrap.appendChild(particle);
         }
 
-        // // Fireworks
-        // const card = document.querySelector(".card");
-        // card.addEventListener("click", () => {
-        //     for (let i = 0; i < 15; i++) {
-        //         const firework = document.createElement("div");
-        //         firework.className = "particle";
-        //         firework.style.background = "radial-gradient(circle,#ffd700,#ffa500)";
-        //         firework.style.width = firework.style.height = Math.random() * 10 + 6 + "px";
-        //         firework.style.position = "absolute";
-        //         firework.style.top = card.offsetTop + card.offsetHeight / 2 + "px";
-        //         firework.style.left = card.offsetLeft + card.offsetWidth / 2 + "px";
-        //         firework.style.animation = `floatParticles ${0.5 + Math.random()}s linear forwards`;
-        //         document.body.appendChild(firework);
-        //         setTimeout(() => firework.remove(), 1200);
-        //     }
-        // });
-        // ===== Background Luxury Fireworks =====
-        function createBackgroundFirework() {
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight * 0.6; // Only upper part of screen
-            const colors = ['#ffd700', '#ffa500', '#ff4500', '#caa14b', '#f0e68c'];
-
+        // ===== Fireworks Effect On Card Click =====
+        const card = document.querySelector(".card");
+        card.addEventListener("click", () => {
             for (let i = 0; i < 15; i++) {
                 const firework = document.createElement("div");
-                firework.className = "firework";
-                const size = Math.random() * 6 + 4;
-                firework.style.width = firework.style.height = size + "px";
-                firework.style.background = colors[Math.floor(Math.random() * colors.length)];
-                const angle = Math.random() * 2 * Math.PI;
-                const distance = Math.random() * 100 + 50;
-                firework.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
-                firework.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
-                firework.style.left = x + "px";
-                firework.style.top = y + "px";
-                firework.style.animation = `firework-blast ${1.2 + Math.random() * 0.8}s ease-out forwards`;
+                firework.className = "particle";
+                firework.style.background = "radial-gradient(circle,#ffd700,#ffa500)";
+                firework.style.width = firework.style.height = Math.random() * 10 + 6 + "px";
+                firework.style.position = "absolute";
+                firework.style.top = card.offsetTop + card.offsetHeight / 2 + "px";
+                firework.style.left = card.offsetLeft + card.offsetWidth / 2 + "px";
+                firework.style.animation = `floatParticles ${0.5 + Math.random()}s linear forwards`;
                 document.body.appendChild(firework);
-                setTimeout(() => firework.remove(), 2000);
+                setTimeout(() => firework.remove(), 1200);
             }
-        }
-
-        // Continuously create background fireworks every 800ms
-        setInterval(createBackgroundFirework, 800);
-
-        function sparkleHeading() {
-            const sparklesContainer = document.querySelector(".heading-sparkles");
-            for (let i = 0; i < 12; i++) {
-                const sparkle = document.createElement("div");
-                sparkle.className = "sparkle";
-                const angle = Math.random() * 2 * Math.PI;
-                const distance = Math.random() * 60 + 30;
-                sparkle.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
-                sparkle.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
-                const size = Math.random() * 5 + 3;
-                sparkle.style.width = sparkle.style.height = `${size}px`;
-                sparklesContainer.appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 1500);
-            }
-        }
-        setInterval(sparkleHeading, 1200);
-
-
-
+        });
     </script>
 </body>
-
 </html>
